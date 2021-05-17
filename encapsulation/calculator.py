@@ -17,6 +17,9 @@ class Calculator:
     def div(self):
         return c.first / c.second
 
+    def avg(self):
+        return self.add()/2
+
 if __name__ == '__main__':
     c = Calculator()
     c.setdata(1, 2)
@@ -24,4 +27,4 @@ if __name__ == '__main__':
     print(c.sub())
     print(c.mul())
     print(c.div())
-
+    print(c.avg())
