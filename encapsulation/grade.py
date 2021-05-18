@@ -21,7 +21,7 @@ class Grade:
 
     @staticmethod
     def main():
-        g = Grade(int(input('수학점수입력')), int(input('영어점수입력')), int(input('국어점수입력')))
+        g = Grade(int(input()), int(input()), int(input()))
         print('총점수:', g.sum())
         print('평균:', g.avg())
         print(f'학점: {g.get_grade()}')
