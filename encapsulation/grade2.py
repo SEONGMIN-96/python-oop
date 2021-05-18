@@ -1,18 +1,40 @@
-class Grade:
-    def set_grade(self, math, eng, kor):
+class Grade(object):
+
+    def __init__(self, math, eng, kor):
         self.math = math
         self.eng = eng
         self.kor = kor
 
     def sum(self):
-        return g.math + g.eng + g.kor
+        return self.math + self.eng + self.kor
 
     def avg(self):
-        return (g.sum()/3)
+        return self.sum()/3
 
-if __name__ == '__main__':
-    g = Grade()
-    g.set_grade(70, 65, 90)
+    def get_grade(self):
+        score = int(self.avg())
+        grade = ''
+        if score > 95:
+            grade = 'A학점'
+        elif score >= 85:
+            grade = 'B학점'
+        elif score >= 75:
+            grade = 'C학점'
+        elif score >= 65:
+            grade = 'D학점'
+        else:
+            grade = 'F학점'
 
-    print(g.sum())
-    print(g.avg())
+        return grade
+
+    @staticmethod
+    def main():
+        g = Grade(int(input('수학점수:')), int(input('영어점수:')), int(input('국어점수:')))
+        print(f'총점:{g.sum()}')
+        print(f'평균:{g.avg()}')
+        print(f'학점:{g.get_grade()}')
+
+Grade.main()
+
+
+

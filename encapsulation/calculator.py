@@ -1,30 +1,23 @@
-class Calculator:
-    def setdata(self, first, second):
-        self.first = first
-        self.second = second
+def add(x, y):
+    return x + y
 
-    def add(self):
-        print(c.first)
-        print(c.second)
-        return c.first + c.second
+def sub(x, y):
+    return x - y
 
-    def sub(self):
-        return c.first - c.second
+def mul(x, y):
+    return x * y
 
-    def mul(self):
-        return c.first * c.second
+def div(x, y):
+    return x / y
 
-    def div(self):
-        return c.first / c.second
-
-    def avg(self):
-        return self.add()/2
+def avg(x, y):
+    return (x + y) / 2
 
 if __name__ == '__main__':
-    c = Calculator()
-    c.setdata(1, 2)
-    print(c.add())
-    print(c.sub())
-    print(c.mul())
-    print(c.div())
-    print(c.avg())
+
+    print(add(1, 2))
+    print(sub(1, 2))
+    print(mul(1, 2))
+    print(div(1, 2))
+    print(avg(1, 2))
+
