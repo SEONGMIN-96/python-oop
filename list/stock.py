@@ -10,7 +10,7 @@ class Stock(object):
     def main():
         ls = []
         while 1:
-            menu = (input('0.종료 1.입력 2.출력 3.삭제'))
+            menu = (input('0.종료 1.입력 2.출력 3.삭제 4.수정'))
             if menu == '0':
                 print('종료합니다.')
                 break

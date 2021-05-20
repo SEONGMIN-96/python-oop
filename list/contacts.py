@@ -17,7 +17,7 @@ class Contacts(object):
     def main():
         ls = []
         while 1:
-            menu = (input('0.종료 1.입력 2.출력 3.삭제'))
+            menu = (input('0.종료 1.입력 2.출력 3.삭제 4.수정'))
             if menu == '1':
                 ls.append(Contacts(input('성함'), int(input('전화번호')), input('이메일'), input('주소')))
             elif menu == '2':
@@ -31,6 +31,13 @@ class Contacts(object):
                 for i, j in enumerate(ls):
                     if j.name == del_name:
                         del ls[i]
+            elif menu == '4':
+                edit_name = input('수정할 이름: ')
+                edit_info = Contacts(edit_name, int(input('수정할 전화번호')), input('수정할 이메일'), input('수정할 주소'))
+                for i, j in enumerate(ls):
+                    if j.name == edit_name:
+                        del ls[i]
+                        ls.append(edit_info)
             else:
                 print('잘못된 입력입니다.')
                 continue
