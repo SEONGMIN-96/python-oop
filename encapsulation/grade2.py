@@ -13,7 +13,6 @@ class Grade(object):
 
     def get_grade(self):
         score = int(self.avg())
-        grade = ''
         if score > 95:
             grade = 'A학점'
         elif score >= 85:

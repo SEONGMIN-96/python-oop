@@ -8,15 +8,16 @@ class Bmi(object):
         self.kg = weight
 
     def get_bmi(self):
-        bmi = ''
         index = self.kg / self.m ** 2 * 10000
         if index >= 35:
             bmi = '고도 비만'
         elif index >= 30:
-            bmi = '경도 비만 (1단계 비만)'
+            bmi = '중(重)도 비만 (2단계 비만)'
         elif index >= 25:
-            bmi = '과체중'
+            bmi = '경도 비만 (1단계 비만)'
         elif index >= 23:
+            bmi = '과체중'
+        elif index >= 18.5:
             bmi = '정상'
         else:
             bmi = '저체중'
