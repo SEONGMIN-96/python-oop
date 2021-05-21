@@ -14,6 +14,12 @@ class Contacts(object):
         return f'입력정보 이름: {self.name} 전화번호: {self.number} 이메일: {self.email} 주소: {self.address}'
 
     @staticmethod
+    def del_element(ls, name):
+        for i, j in enumerate(ls):
+            if j.name == name:
+                del ls[i]
+
+    @staticmethod
     def main():
         ls = []
         while 1:
@@ -27,16 +33,13 @@ class Contacts(object):
                 print('종료합니다.')
                 break
             elif menu == '3':
-                del_name = input('삭제할 이름: ')
-                for i, j in enumerate(ls):
-                    if j.name == del_name:
-                        del ls[i]
+                name = input('삭제할 이름: ')
+                Contacts.del_element(ls, name)
+
             elif menu == '4':
                 edit_name = input('수정할 이름: ')
                 edit_info = Contacts(edit_name, int(input('수정할 전화번호')), input('수정할 이메일'), input('수정할 주소'))
-                for i, j in enumerate(ls):
-                    if j.name == edit_name:
-                        del ls[i]
+
                         ls.append(edit_info)
             else:
                 print('잘못된 입력입니다.')

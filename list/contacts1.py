@@ -10,37 +10,36 @@ class Contacts(object):
         self.email = email
         self.address = address
 
-    def get_info(self):
-        return f'이름: {self.name}, 전화번호: {self.phone}, 이메일: {self.email}, 주소: {self.address}'
+    def string_contacts(self):
+        return f'name: {self.name}, phone: {self.phone}, email: {self.email}, address: {self.address}'
+
+    @staticmethod
+    def del_element(ls, name):
+        for i, j in enumerate(ls):
+            if j.name == name:
+                del ls[i]
 
     @staticmethod
     def main():
         ls = []
         while 1:
-            menu = input('0.종료 1.입력 2.출력 3.삭제 4.수정')
+            menu = input('0.exit 1.create 2.read 3.update 4.delete')
             if menu == '0':
                 print('종료합니다.')
                 break
             elif menu == '1':
-                ls.append(Contacts(input('이름'), int(input('전화번호')), input('이메일'), input('주소'),))
+                ls.append(Contacts(input('name'), int(input('phone')), input('email'), input('address')))
             elif menu == '2':
                 for i in ls:
-                    print(i.get_info())
+                    print(i.string_contacts())
             elif menu == '3':
-                del_name = input('삭제할 아이디')
-                for i, j in enumerate(ls):
-                    if j.name == del_name:
-                        del ls[i]
+                name = input('수정할 이름')
+                edit_info = Contacts(name, int(input('수정할 전화번호')), input('수정할 이메일'), input('수정할 주소'))
+                Contacts.del_element(ls, name)
+                ls.append(edit_info)
             elif menu == '4':
-                edit_name = input('수정할 이름')
-                edit_info = Contacts(edit_name, int(input('수정할 전화번호')), input('수정할 이메일'), input('수정할 주소'))
-                for i, j in enumerate(ls):
-                    if j.name == edit_name:
-                        del ls[i]
-                        ls.append(edit_info)
-            else:
-                print('잘못된 접근입니다.')
-                continue
+                name = input('수정할 이름')
+                Contacts.del_element(ls, name)
 
 
 Contacts.main()
